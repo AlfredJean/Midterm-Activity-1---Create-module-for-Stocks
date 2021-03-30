@@ -19,10 +19,12 @@
 </template>
 
 <script>
-import Layout from "@/Layouts/Layout.vue";
+import BreezeAuthenticatedLayout from "@/Layouts/Authenticated.vue";
 
 export default {
-  layout:Layout,
+  components:{
+      BreezeAuthenticatedLayout,
+  },
 
 };
 </script>
