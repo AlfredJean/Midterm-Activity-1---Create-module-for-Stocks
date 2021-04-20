@@ -35,10 +35,12 @@ Route::middleware('auth')
 
    // Route::resource('pos', PurchaseOrderController::class);
   //  Route::resource('prs', PurchaseRequestController::class);
-  Route::resource('sc', StockCategoryController::class);
-  Route::resource('stock', StockController::class);
-
+    Route::resource('sc', StockCategoryController::class);
+    Route::resource('stock', StockController::class);
+    
 });
+
+
 
 
 require __DIR__.'/auth.php';
