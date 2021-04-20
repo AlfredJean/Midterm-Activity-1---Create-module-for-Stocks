@@ -27,7 +27,7 @@ class StockController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('Stocks/Create');
     }
 
     /**
@@ -38,7 +38,32 @@ class StockController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validate = $request->validate(
+
+            [
+                'id' => 'required|numeric|unique:stocks',
+                'description' => 'required',
+                'stock_category_id' => 'required',
+                'uom' => 'required',
+                'barcode' => 'required|numeric',
+                'discontinued' => 'required',
+                
+
+            ]
+
+        );
+
+        $model = new Stock();
+        $model->id = $request->id;
+        $model->description = $request->description;
+        $model->stock_category_id = $request->stock_category_id;
+        $model->uom = $request->uom;
+        $model->barcode = $request->barcode;
+        $model->discontinued = $request->discontinued;
+
+        $model->save();
+
+        return redirect()->back()->with('success', 'New Stock Added!');
     }
 
     /**
